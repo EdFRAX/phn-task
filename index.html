@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://phn-tutorial-deepak-%2Dedfrax2.repl.co/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+      /* General styles */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: helvetica;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      label {
+        cursor: pointer;
+        font-size: 26px;
+        margin-right: 50px;
+        display: none;
+        color:#fff;
+      }
+
+      ul,
+      li {
+        list-style: none;
+        -webkit-padding-start: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #ED3E44;
+        font-weight: bolder;
+        color: #fff;
+        font-size: 15px;
+      }
+
+      section {
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      section h1 {
+        padding: 1rem 0;
+      }
+
+      section img {
+        border-radius: 10px;
+      }
+
+      /* Styles for topbar */
+      nav {
+        text-align: right;
+        line-height: 70px;
+        width: 100%;
+        background-color: #4056A1;
+        position: sticky;
+        top: 0;
+      }
+
+      #toggle {
+        display: none;
+      }
+
+      nav h1 {
+        cursor: pointer;
+        float: left;
+        line-height: 70px;
+        margin-left: 50px;
+        color: #fff;
+      }
+
+      .navbar {
+        line-height: 70px;
+        margin-right: 50px;
+      }
+
+      .nav-item {
+        cursor: pointer;
+        display: inline;
+        padding: 10px;
+      }
+
+      /* Styles for dropdown */
+      .nav-item-dropdown {
+        position: relative;
+      }
+
+      .nav-item-dropdown:hover>.dropdown-menu {
+        cursor: pointer;
+        display: block;
+        opacity: 1;
+      }
+
+      .dropdown-trigger {
+        position: relative;
+      }
+
+      .dropdown-trigger:hover+.dropdown-menu {
+        display: block;
+        opacity: 1;
+      }
+
+      .dropdown-menu {
+        background-color: #F13C20;
+        display: block;
+        text-align: right;
+        position: absolute;
+        top: 2.3rem;
+        right: -130px;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        width: 230px;
+      }
+
+      .dropdown-menu a {
+        color: #fff;
+      }
+
+      .dropdown-menu-item {
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .dropdown-menu-item:hover {
+        background-color: #D79922;
+      }
+
+      /* Styles for grid system */
+      .grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid-item {
+        width: 50%;
+        padding: 2rem;
+      }
+
+      section:nth-child(2n) {
+        background: #D79922;
+      }
+
+      section:nth-child(2n+1) {
+        background: #4056A1;
+      }
+
+      .department .grid-item {
+        text-align: left;
+      }
+
+      .department .grid-item ol {
+        padding: 10px 0;
+      }
+
+      .department .grid-item ol li {
+        list-style: inside;
+        list-style-type: inherit;
+      }
+
+      .enroll {
+        cursor: pointer;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #F13C20;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+      }
+
+      .contact form input,
+      .contact form textarea,
+      .contact form button {
+        cursor: pointer;
+        width: 70%;
+        background: none;
+        padding: 1rem;
+        color: #D79922;
+        border: none;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .contact form button {
+        width: 80%;
+        background: #D79922;
+        padding: 1rem;
+        color: #fff;
+        border-bottom: none;
+        border-radius: 10px;
+        margin: 1rem 0;
+      }
+
+      .contact form input:focus,
+      .contact form textarea:focus,
+      .contact form button:focus {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        outline: none;
+      }
+
+      ::-webkit-input-placeholder {
+        color: #D79922;
+      }
+
+      Footer {
+        padding: 1rem;
+        text-align: center;
+        color: #fff;
+        background-color: #F13C20;
+      }
+
+      @media only screen and (max-width:768px) {
+
+        /* Styles for mobile menu */
+        label {
+          display: block;
+        }
+
+        .navbar {
+          margin: auto;
+          display: none;
+        }
+
+        .nav-item {
+          width: 100%;
+          display: block;
+          text-align: center;
+          padding: 0;
+        }
+
+        .dropdown-menu {
+          width: 100%;
+          position: relative;
+          margin: 0;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+
+        .nav-item:hover {
+          background-color: #D79922;
+        }
+
+        #toggle:checked+.navbar {
+          display: block;
+        }
+
+        /* Styles for mobile grid */
+        .grid-item {
+          width: 100%;
+        }
+
+        .grid {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+    <title>PHN INSTITUTE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <h1>PHN INSTITUTE</h1>
+      <label for="toggle">☰</label>
+      <input type="checkbox" id="toggle">
+      <div class="navbar">
+        <ul class="nav-items">
+          <!-- Navigation -->
+          <li class="nav-item">
+            <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#About">About</a>
+          </li>
+          <!-- Dropdown menu -->
+          <li class="nav-item nav-item-dropdown">
+            <a class="dropdown-trigger">Department</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-menu-item">
+                <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#Department">AI and Machine Learning</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#Department">Data Science</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#Department">Database Management</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#Department">Web Development</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#Department">Ui/UX Fundamentals</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#Research">Research</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#Placement">Placement</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://phn-tutorial-deepak--edfrax2.repl.co/#Contact">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar -->
+    <!-- Main -->
+    <main>
+      <section class="about" id="About">
+        <h1>About Us</h1>
+        <div class="grid">
+          <div class="grid-item">
+            <p> Our institute was founded with the mission of empowering students with knowledge and skills that will enable them to succeed in their chosen careers. We offer a range of courses and programs designed to provide students with a solid foundation in their fields of study. Our faculty is comprised of experts in their respective fields who are passionate about teaching and helping students grow. </p>
+          </div>
+          <div class="grid-item">
+            <img src="./index_files/young-people-walking-front-college-university-flat-illustration_74855-14224.jpg">
+          </div>
+        </div>
+      </section>
+      <section class="department" id="Department">
+        <h1>Department</h1>
+        <div class="grid">
+          <div class="grid-item">
+            <img src="./index_files/professor-with-charts-teaching-students-from-laptop-screen-globe_335657-3287.jpg">
+          </div>
+          <div class="grid-item">
+            <p> Our department offers a variety of courses that are designed to meet the needs of students with diverse interests and career goals. We offer courses in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p><ol>
+              <li>AI and Machine Learning</li>
+              <li>Data Science</li>
+              <li>Database Management</li>
+              <li>Web Development</li>
+              <li>UX/UI Fundamentals</li>
+            </ol> Our courses are taught by experienced professionals who are passionate about sharing their knowledge and helping students succeed. <p></p>
+            <button class="enroll">ENROLL NOW</button>
+          </div>
+        </div>
+      </section>
+      <section class="research" id="Research">
+        <h1>Research</h1>
+        <div class="grid">
+          <div class="grid-item">
+            <p> Our institute is committed to conducting cutting-edge research in our fields of study. Our faculty members are involved in a wide range of research projects, from developing new machine learning algorithms to exploring the latest trends in web development. We encourage students to get involved in research projects and gain hands-on experience in their fields of study. </p>
+          </div>
+          <div class="grid-item">
+            <img src="./index_files/editorial-commission-concept-illustration_114360-7751.jpg">
+          </div>
+        </div>
+      </section>
+      <section class="placement" id="Placement">
+        <h1>Placement</h1>
+        <div class="grid">
+          <div class="grid-item">
+            <img src="./index_files/recruitment-agency-searching-job-applicants_1262-19873.jpg">
+          </div>
+          <div class="grid-item">
+            <p> We take pride in our strong placement record, and our dedicated placement cell works tirelessly to help students find employment opportunities that match their skills and interests. Our alumni are working in leading companies in their respective fields and are making a significant impact in their industries. </p>
+          </div>
+        </div>
+      </section>
+      <section class="contact" id="Contact">
+        <h1>Contact us</h1>
+        <div class="grid">
+          <div class="grid-item">
+            <p> We are always happy to hear from students and answer any questions they may have. Please feel free to contact us if you would like more information about our courses, research opportunities, or placement services. We look forward to hearing from you! </p>
+          </div>
+          <div class="grid-item">
+            <form>
+              <input type="text" placeholder="Name">
+              <br>
+              <input type="email" placeholder="Email">
+              <br>
+              <textarea placeholder="Message"></textarea>
+              <br>
+              <button class="contact-btn">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Main -->
+    <!--Footer-->
+    <footer>Copyright © 2023 PHN INSTITUTE</footer>
+    <!--Footer-->
+  
+</body></html>
